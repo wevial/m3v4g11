@@ -1,0 +1,4 @@
+# python3 circuits/m3_cnf_compare.py circuits/m3v4g11_results.tsv lean/direct/.lake/build/bin/m3export 4   (2026-10-27, 4 workers)
+jobs compared: 653 {'cover': 4, 'leaf': 436, 'whole': 213}; rows with two different sha256: 0
+sha256 mismatches (Lean vs recorded): 0 []
+# exit 0, wall 27 s

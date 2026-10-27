@@ -1,0 +1,20 @@
+1. rows 656; counted UNSAT 626, SAT 24; SAT rows failing check_block here: 0 []
+2. CNF identity: 650 distinct counted jobs regenerated, sha256 mismatches: 0 []
+3. bounds:
+   class 1 k=3 shift=0 L=(7,7): OK (certified)
+   class 1 k=4 shift=0 L=(9,10): OK (certified)
+   class 2 k=3 shift=0 L=(8,8): OK (certified)
+   class 2 k=4 shift=0 L=(10,10): OK (certified)
+   class 3 k=3 shift=0 L=(7,7): OK (certified)
+   class 3 k=4 shift=0 L=(10,10): OK (certified)
+4. claims (k = 4, shift 0, r = 1..11):
+   class 1: no circuit of <= 11 gates (elim L = 9,10; r = 11 by cover + 420 leaves)
+   class 2: no circuit of <= 11 gates (elim L = 10,10; r = 11 by whole)
+   class 3: no circuit of <= 11 gates (elim L = 10,10; r = 11 by whole)
+5. agreement (first SAT r and per-r verdicts, with vs without elim):
+   class 1 k=3 shift=0: r compared 1..10, disagreements []; first SAT {'-': 9, '7,7': 9}
+   class 1 k=4 shift=0: r compared 1..9, disagreements []; first SAT {'-': None, '9,10': None}
+   class 2 k=3 shift=0: r compared 1..9, disagreements []; first SAT {'-': None, '8,8': None}
+   class 2 k=4 shift=0: r compared 1..9, disagreements []; first SAT {'-': None, '10,10': None}
+   class 3 k=3 shift=0: r compared 1..10, disagreements []; first SAT {'-': 10, '7,7': 10}
+   class 3 k=4 shift=0: r compared 1..9, disagreements []; first SAT {'-': None, '10,10': None}

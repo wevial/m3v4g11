@@ -1,0 +1,42 @@
+# controls (lratcheck must reject):
+  class 2 r=10 whole -            sha256 502318372dd78fb4 = recorded; cadical exit 20 [0.0s CPU, 0.0 MB]; lratcheck: s VERIFIED UNSAT (96 actions, 275 ms) [0.3s CPU]
+  class 3 r=10 whole -            sha256 f094bfb1721ac49e = recorded; cadical exit 20 [0.0s CPU, 0.0 MB]; lratcheck: s VERIFIED UNSAT (96 actions, 264 ms) [0.3s CPU]
+  class-2 r=10 proof vs class-3 r=10 CNF: s NOT VERIFIED (proof parse error after 182751: clause id 184274, expected 182752) -> rejected
+  class-2 r=10 proof, middle byte bit 0 flipped: s NOT VERIFIED (proof parse error after 184331: clause id 184396, expected 184332) -> rejected
+# 453 jobs, 4 workers
+class 1 r= 1 whole -            sha256 e8961ac88545070b = recorded; cadical exit 20 [0.0s CPU, 0.0 MB]; lratcheck: s VERIFIED UNSAT (6 actions, 2 ms) [0.0s CPU]
+class 1 r= 2 whole -            sha256 129e09be42533e75 = recorded; cadical exit 20 [0.0s CPU, 0.0 MB]; lratcheck: s VERIFIED UNSAT (12 actions, 7 ms) [0.0s CPU]
+class 1 r= 3 whole -            sha256 a292ff4fe567d3c7 = recorded; cadical exit 20 [0.0s CPU, 0.0 MB]; lratcheck: s VERIFIED UNSAT (19 actions, 17 ms) [0.0s CPU]
+class 1 r= 4 whole -            sha256 d2764d1279138ffb = recorded; cadical exit 20 [0.0s CPU, 0.0 MB]; lratcheck: s VERIFIED UNSAT (27 actions, 31 ms) [0.0s CPU]
+class 1 r= 5 whole -            sha256 4bcae112bd27c699 = recorded; cadical exit 20 [0.0s CPU, 0.0 MB]; lratcheck: s VERIFIED UNSAT (36 actions, 52 ms) [0.1s CPU]
+class 1 r= 6 whole -            sha256 3652d853ea97ecac = recorded; cadical exit 20 [0.0s CPU, 0.0 MB]; lratcheck: s VERIFIED UNSAT (46 actions, 81 ms) [0.1s CPU]
+class 1 r= 7 whole -            sha256 03c2a211c02d7d55 = recorded; cadical exit 20 [0.0s CPU, 0.0 MB]; lratcheck: s VERIFIED UNSAT (57 actions, 117 ms) [0.1s CPU]
+class 1 r= 8 whole -            sha256 15961674f06a03b5 = recorded; cadical exit 20 [0.0s CPU, 0.0 MB]; lratcheck: s VERIFIED UNSAT (69 actions, 162 ms) [0.2s CPU]
+class 1 r= 9 whole -            sha256 1f4b768f7adbe3bc = recorded; cadical exit 20 [0.0s CPU, 0.0 MB]; lratcheck: s VERIFIED UNSAT (82 actions, 221 ms) [0.2s CPU]
+class 1 r=10 whole -            sha256 c1794ecb9d753e24 = recorded; cadical exit 20 [0.0s CPU, 0.0 MB]; lratcheck: s VERIFIED UNSAT (96 actions, 283 ms) [0.3s CPU]
+class 1 r=11 cover -            sha256 cc2febacf2947c75 = recorded; cadical exit 20 [0.1s CPU, 0.0 MB]; lratcheck: s VERIFIED UNSAT (257 actions, 380 ms) [0.4s CPU]
+class 2 r= 1 whole -            sha256 f2ad8bc16a5afdaa = recorded; cadical exit 20 [0.0s CPU, 0.0 MB]; lratcheck: s VERIFIED UNSAT (6 actions, 3 ms) [0.0s CPU]
+class 2 r= 2 whole -            sha256 587c6888b08143e2 = recorded; cadical exit 20 [0.0s CPU, 0.0 MB]; lratcheck: s VERIFIED UNSAT (12 actions, 9 ms) [0.0s CPU]
+class 2 r= 3 whole -            sha256 5cd39da2d8c72c88 = recorded; cadical exit 20 [0.0s CPU, 0.0 MB]; lratcheck: s VERIFIED UNSAT (19 actions, 21 ms) [0.0s CPU]
+class 2 r= 4 whole -            sha256 8fb9a4a33f9e5462 = recorded; cadical exit 20 [0.0s CPU, 0.0 MB]; lratcheck: s VERIFIED UNSAT (27 actions, 32 ms) [0.0s CPU]
+class 2 r= 5 whole -            sha256 7de00d62af84da59 = recorded; cadical exit 20 [0.0s CPU, 0.0 MB]; lratcheck: s VERIFIED UNSAT (36 actions, 53 ms) [0.1s CPU]
+class 2 r= 6 whole -            sha256 20b6788282f86ed9 = recorded; cadical exit 20 [0.0s CPU, 0.0 MB]; lratcheck: s VERIFIED UNSAT (46 actions, 86 ms) [0.1s CPU]
+class 2 r= 7 whole -            sha256 35e96037247841f3 = recorded; cadical exit 20 [0.0s CPU, 0.0 MB]; lratcheck: s VERIFIED UNSAT (57 actions, 118 ms) [0.1s CPU]
+class 2 r= 8 whole -            sha256 baaf29cf81514733 = recorded; cadical exit 20 [0.0s CPU, 0.0 MB]; lratcheck: s VERIFIED UNSAT (69 actions, 164 ms) [0.2s CPU]
+class 2 r= 9 whole -            sha256 0029aee800b253d3 = recorded; cadical exit 20 [0.0s CPU, 0.0 MB]; lratcheck: s VERIFIED UNSAT (82 actions, 233 ms) [0.2s CPU]
+class 2 r=10 whole -            sha256 502318372dd78fb4 = recorded; cadical exit 20 [0.0s CPU, 0.0 MB]; lratcheck: s VERIFIED UNSAT (96 actions, 293 ms) [0.3s CPU]
+class 2 r=11 whole -            sha256 f43a254d7885a96b = recorded; cadical exit 20 [536.4s CPU, 2615.8 MB]; lratcheck: s VERIFIED UNSAT (11050261 actions, 285260 ms) [285.9s CPU]
+class 3 r= 1 whole -            sha256 c941d57e09dff971 = recorded; cadical exit 20 [0.0s CPU, 0.0 MB]; lratcheck: s VERIFIED UNSAT (6 actions, 3 ms) [0.0s CPU]
+class 3 r= 2 whole -            sha256 ded0d2f064b36c56 = recorded; cadical exit 20 [0.0s CPU, 0.0 MB]; lratcheck: s VERIFIED UNSAT (12 actions, 9 ms) [0.0s CPU]
+class 3 r= 3 whole -            sha256 72cc7622e7f1c666 = recorded; cadical exit 20 [0.0s CPU, 0.0 MB]; lratcheck: s VERIFIED UNSAT (19 actions, 16 ms) [0.0s CPU]
+class 3 r= 4 whole -            sha256 1a86d76bce323eea = recorded; cadical exit 20 [0.0s CPU, 0.0 MB]; lratcheck: s VERIFIED UNSAT (27 actions, 32 ms) [0.0s CPU]
+class 3 r= 5 whole -            sha256 7e5746d1f423f907 = recorded; cadical exit 20 [0.0s CPU, 0.0 MB]; lratcheck: s VERIFIED UNSAT (36 actions, 52 ms) [0.1s CPU]
+class 3 r= 6 whole -            sha256 058cb043a7dde932 = recorded; cadical exit 20 [0.0s CPU, 0.0 MB]; lratcheck: s VERIFIED UNSAT (46 actions, 81 ms) [0.1s CPU]
+class 3 r= 7 whole -            sha256 9216f780066d0167 = recorded; cadical exit 20 [0.0s CPU, 0.0 MB]; lratcheck: s VERIFIED UNSAT (57 actions, 116 ms) [0.1s CPU]
+class 3 r= 8 whole -            sha256 18305e76a680315d = recorded; cadical exit 20 [0.0s CPU, 0.0 MB]; lratcheck: s VERIFIED UNSAT (69 actions, 162 ms) [0.2s CPU]
+class 3 r= 9 whole -            sha256 41f58ca42798bdbc = recorded; cadical exit 20 [0.0s CPU, 0.0 MB]; lratcheck: s VERIFIED UNSAT (82 actions, 212 ms) [0.2s CPU]
+class 3 r=10 whole -            sha256 f094bfb1721ac49e = recorded; cadical exit 20 [0.0s CPU, 0.0 MB]; lratcheck: s VERIFIED UNSAT (96 actions, 286 ms) [0.3s CPU]
+class 3 r=11 whole -            sha256 9d2381e71f6d402c = recorded; cadical exit 20 [197.9s CPU, 1020.9 MB]; lratcheck: s VERIFIED UNSAT (4955010 actions, 119622 ms) [119.9s CPU]
+class 1 r=11 leaves: 420/420 OK (sha256 = recorded, exit 20, VERIFIED); solve 1416s CPU, lratcheck 1067s CPU, max leaf solve 229s, proofs 7.3 GB
+SUMMARY: 453/453 jobs OK; controls both rejected; solve 2151s CPU, lratcheck 1476s CPU; wall 1434s
+exit 0

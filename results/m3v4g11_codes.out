@@ -1,0 +1,4 @@
+60 codes; 3 classes; 1 relational
+  00->0 01->0 10->1 11->2 orbit 24 
+  00->0 01->1 10->1 11->2 orbit 12 relational
+  00->0 01->1 10->2 11->- orbit 24 

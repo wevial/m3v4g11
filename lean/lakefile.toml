@@ -1,0 +1,30 @@
+name = "m3v4g11"
+defaultTargets = ["Garden"]
+
+[[require]]
+name = "mathlib"
+scope = "leanprover-community"
+rev = "v4.33.1"
+
+# The import closure of M3Codes.m3v4g11_all, M3Codes.m3v4g11_all_direct and Garden.M3Direct:
+# 21 files under Garden/, unchanged from the research repository. They import 10 Mathlib modules
+# (982 modules with their own imports), which `lake build` compiles from source.
+[[lean_lib]]
+name = "Garden"
+roots = ["Garden.M3Codes", "Garden.M3Direct"]
+globs = ["Garden.+"]
+
+# Writes job i of M3Jobs.jobs (or any m3v4g11 job) as DIMACS, generated in Lean (Garden/M3Gen.lean).
+[[lean_exe]]
+name = "m3export"
+root = "M3Export"
+
+# Checks an LRAT proof against job i of M3Jobs.jobs, built in memory (Garden/M3Direct.lean).
+[[lean_exe]]
+name = "m3direct"
+root = "M3Direct"
+
+# Streams a binary LRAT proof through Lean core's verified checker against a DIMACS file.
+[[lean_exe]]
+name = "lratcheck"
+root = "LratCheck"

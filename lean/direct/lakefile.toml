@@ -1,0 +1,24 @@
+# `m3export`, `m3direct` and `lratcheck` without Mathlib: these executables import only Std and
+# Std-only files of ../Garden, so they build with the Lean toolchain alone:
+#   cd lean/direct && lake build      # binaries in .lake/build/bin/
+# The sources are the parent directory's. reproduce.sh uses this package for the checkers.
+name = "garden-direct"
+srcDir = ".."
+defaultTargets = ["m3export", "m3direct", "lratcheck"]
+
+[[lean_lib]]
+name = "GardenDirect"
+roots = ["Garden.CnfGen", "Garden.CnfLeaves", "Garden.CnfSpecs", "Garden.M3Gen", "Garden.M3Jobs",
+         "Garden.LratStream", "Garden.LratDirect", "Garden.M3Direct"]
+
+[[lean_exe]]
+name = "m3export"
+root = "M3Export"
+
+[[lean_exe]]
+name = "m3direct"
+root = "M3Direct"
+
+[[lean_exe]]
+name = "lratcheck"
+root = "LratCheck"
