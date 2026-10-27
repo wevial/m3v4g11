@@ -170,8 +170,8 @@ PY
 MODE=${1:-}
 [ $# -gt 0 ] && shift
 case "$MODE" in
-  fetch) fetch; step "fetch done"; exit 0 ;;
-  quick|full) ;;
+  fetch) [ $# -eq 0 ] || { echo "fetch takes no options" >&2; exit 2; }; fetch; step "fetch done"; exit 0 ;;
+  quick|full) python3 -B scripts/check.py args "$MODE" "$@" || exit 2 ;;   # bad options fail before any download or build
   *) sed -n '2,15p' "$0"; exit 2 ;;
 esac
 
