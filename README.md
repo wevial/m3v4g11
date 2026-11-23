@@ -2,7 +2,7 @@
 
 ## The question
 
-A standard way to compute `MOD3(x_1, …, x_n) = [x_1 + … + x_n ≡ 0 (mod 3)]` is a chain of identical blocks. Each block reads the count so far, reduced mod 3 and stored on two wires. It adds four more input bits and passes on the new count in the same two-wire code. A block of `s` gates gives circuits of about `s·n/4` gates. The best known blocks give about `3n`.
+A standard way to compute `MOD3(x_1, …, x_n) = [x_1 + … + x_n ≡ 0 (mod 3)]` is a chain of identical blocks. Each block reads the count so far, reduced mod 3 and stored on two wires. It adds four more input bits and passes on the new count in the same two-wire code. A block of `s` gates gives circuits of about `s·n/4` gates. The best known blocks, of 9 gates for three bits, give about `3n`.
 
 In 2018 A. S. Kulikov asked whether such a block of **11** gates exists over B2 (any two-input gates), which would give `2.75n + O(1)`. The question is the first open problem in his repository [`alexanderskulikov/circuit-synthesis`](https://github.com/alexanderskulikov/circuit-synthesis#open-problems) ([`openproblems/m3v4g11.py`](https://github.com/alexanderskulikov/circuit-synthesis/blob/master/openproblems/m3v4g11.py)):
 
@@ -73,7 +73,7 @@ A second theorem, `M3Codes.m3v4g11_all_direct`, states the same conclusion with 
 
 **Established by computation, outside the kernel:** that the 506 CNFs are unsatisfiable. There are three independent records:
 
-1. **The original run** (2026-10-27, an Apple M4 Pro laptop). A Python encoder wrote the CNFs, and `results/m3_cnf_compare.out` shows that Lean's generator writes the same bytes (653 of 653 jobs). CaDiCaL 3.0.1 solved them. Every proof was accepted by `cake_lpr`, CakeML's LRAT checker, which is verified down to machine code, including its DIMACS parser. The record is `results/m3v4g11_results.tsv`.
+1. **The original run** (2026-10-27, an Apple M4 Pro laptop). A Python encoder wrote the CNFs, and `results/m3_cnf_compare.out` shows that Lean's generator writes the same bytes (all 653 jobs in that run's record, which include the 506). CaDiCaL 3.0.1 solved them. Every proof was accepted by `cake_lpr`, CakeML's LRAT checker, which is verified down to machine code, including its DIMACS parser. The record is `results/m3v4g11_results.tsv`.
 2. **A Linux re-check** (2026-10-27). Lean's exporter wrote each DIMACS file, and each file's sha256 had to equal the original run's. CaDiCaL 2.1.2 solved each CNF, and Lean core's verified checker `lratcheck` accepted every proof (`results/m3_lean_recheck.out` and `results/m3_lean_recheck_k3.out`). Those files list 86 of the jobs one per line. For the 420 class-1 cubes (the leaves), the Linux re-check driver printed only a summary (`420/420 OK`), so for those jobs this record is that summary.
 3. **Your run** (`./reproduce.sh full`). Lean's exporter, `m3export`, writes each DIMACS file from `M3Jobs.jobs`, and each file's sha256 must equal the one in the original run's record. CaDiCaL 3.0.1 solves each CNF. Both `cake_lpr` (against the DIMACS file) and `m3direct` (against the CNF built in memory, with no file) must accept the proof.
 
@@ -81,7 +81,7 @@ In run 3 you trust your machine and `scripts/check.py`. You also trust the compi
 
 ## What is open
 
-- **12 or 13.** The best known blocks have 13 gates (class 1: the 9-gate 3-bit block, then the 4-gate 1-bit block) and 14 gates (class 3). A one-hour search at 12 gates found nothing for any class and proved nothing.
+- **12 or 13.** The best known blocks have 13 gates (class 1: the 9-gate 3-bit block, then the 4-gate 1-bit block) and 14 gates (class 3); this repository has no class-2 block. A one-hour search at 12 gates found nothing for any class and proved nothing.
 - **Blocks whose output code is the input code shifted by a constant residue.** Such blocks would chain just as well, but they are not part of Kulikov's question and are not covered.
 - **Mathlib.** The proof imports 10 Mathlib modules (`Finset`, `split_ifs`, `Nat.find` and similar). A port to Lean core alone would remove the last large dependency. That port has not been done.
 
@@ -106,7 +106,7 @@ Use Linux on x86-64 (tested) or arm64 (untested). You need bash, curl, git, gcc/
 2. `lake build` the proof, then print the main theorem and the axioms of 14 theorems (`lean/Axioms.lean`). This step fails if any theorem lists an axiom outside the standard three.
 3. Run the 17 must-fail controls and the 3 witness files (`scripts/lean_controls.py`).
 4. Audit the records. `m3export list` prints the 506 jobs. Each must have its own line in the original run's record, with the sha256 it is checked against later. In the Linux re-check record, 86 jobs must each have their own line, and the 420 class-1 leaves their summary line. Any failure line fails the audit.
-5. Runtime controls. Both checkers (`cake_lpr` and `m3direct`) must accept two real proofs. Both must then explicitly reject each proof given for another CNF, and each proof with one bit flipped at four places.
+5. Runtime controls. Both checkers (`cake_lpr` and `m3direct`) must accept two real proofs. Both must then explicitly reject each proof given for another CNF, and four copies of each proof, each with a single bit flipped at a different place.
 6. Re-check. `quick` takes a uniform sample of 51 jobs; choose your own sample with `--seed <any string>`, or its size with `--sample N`. `full` takes all 506, hardest first; `--hardest K` takes only the K hardest. Results go to `work/results-*.tsv`, one line per CNF. Rerunning the same command validates every earlier line before resuming. `python3 scripts/check.py summary <file>` re-validates a results file.
 
 **In Docker**, as tested:
@@ -158,7 +158,7 @@ The re-check took 2.9 CPU-hours: CaDiCaL 1.58, `m3direct` 0.96, `cake_lpr` 0.36.
   - `m3_lean_recheck.out` and `m3_lean_recheck_k3.out`: the Linux re-check.
   - `m3_cnf_compare.out`: Lean's CNFs are byte-identical to the original ones.
   - `m3v4g11_audit.out`: the original run's audit. `m3v4g11_codes.out`: the 60 codes in 3 classes, by a Python script that came before `M3Codes`.
-  - `as-run/`: the scripts behind the files in `results/`. `m3v4g11.py` and `optimal_circuit.py` are the encoder versions last pinned in `mac_pins_m3.txt`. `m3v4g11_run.py` is that version with a personal name removed from one comment.
+  - `as-run/`: the scripts behind the files in `results/`. `m3v4g11.py` and `optimal_circuit.py` are the encoder versions last pinned in `mac_pins_m3.txt`. `m3v4g11_run.py`, the driver, is its version last pinned there, with a personal name removed from one comment.
 
 ## Credits
 
