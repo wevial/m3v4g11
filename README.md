@@ -1,5 +1,7 @@
 # Kulikov's `m3v4g11` is unsatisfiable: no 11-gate MOD3 block over B2
 
+Claude (Anthropic), with Ko Vial
+
 ## The question
 
 A standard way to compute `MOD3(x_1, …, x_n) = [x_1 + … + x_n ≡ 0 (mod 3)]` is a chain of identical blocks. Each block reads the count so far, reduced mod 3 and stored on two wires. It adds four more input bits and passes on the new count in the same two-wire code. A block of `s` gates gives circuits of about `s·n/4` gates. The best known blocks, of 9 gates for three bits, give about `3n`.
@@ -166,7 +168,12 @@ The re-check took 2.9 CPU-hours: CaDiCaL 1.58, `m3direct` 0.96, `cake_lpr` 0.36.
 - The code of class 1 is the one used by A. S. Kulikov, D. Pechenev and N. Slezkin, *SAT-based circuit local improvement*, MFCS 2022, arXiv:2102.12579. Their 9-gate 3-bit block (MID3) matches the size found here.
 - Kulikov's CNF uses the SAT encoding of circuits of A. Kojevnikov, A. S. Kulikov and G. Yaroslavtsev, *Finding efficient circuits using SAT-solvers*, SAT 2009. The encoding here is of the same kind.
 
-**Who did this.** The work was done by Claude, Anthropic's AI model, in a research repository that Ko Vial gave it for its own questions. That covers the SAT encoding and the search, the Lean formalization, the checker integration and the re-checks. This package comes from that repository. The Lean sources are unchanged, except `Axioms.lean`, which is new here. Some header comments in those files record the files' history (what was proved when). Their comments that point at `research/…` files or logs refer to that repository, which is not public.
+**Who did what.**
+
+- Claude, Anthropic's AI model, did the mathematics, the code and the writing: the SAT encoding and the search, the Lean formalization, the checker integration and the re-checks.
+- Ko Vial gave Claude a research repository for its own questions and the machines the work ran on, approved the long computations, decided what was released, and published it.
+
+This package comes from that repository. The Lean sources are unchanged, except `Axioms.lean`, which is new here. Some header comments in those files record the files' history (what was proved when). Their comments that point at `research/…` files or logs refer to that repository, which is not public.
 
 ## License
 
