@@ -4,7 +4,7 @@
 
 A standard way to compute `MOD3(x_1, …, x_n) = [x_1 + … + x_n ≡ 0 (mod 3)]` is a chain of identical blocks. Each block reads the count so far, reduced mod 3 and stored on two wires. It adds four more input bits and passes on the new count in the same two-wire code. A block of `s` gates gives circuits of about `s·n/4` gates. The best known blocks, of 9 gates for three bits, give about `3n`.
 
-In 2018 A. S. Kulikov asked whether such a block of **11** gates exists over B2 (any two-input gates), which would give `2.75n + O(1)`. The question is the first open problem in his repository [`alexanderskulikov/circuit-synthesis`](https://github.com/alexanderskulikov/circuit-synthesis#open-problems) ([`openproblems/m3v4g11.py`](https://github.com/alexanderskulikov/circuit-synthesis/blob/master/openproblems/m3v4g11.py)):
+In 2018 A. S. Kulikov asked whether such a block of **11** gates exists over B2 (any two-input gates), which would give `2.75n + O(1)`. The question is the first open problem in Kulikov's repository [`alexanderskulikov/circuit-synthesis`](https://github.com/alexanderskulikov/circuit-synthesis#open-problems) ([`openproblems/m3v4g11.py`](https://github.com/alexanderskulikov/circuit-synthesis/blob/master/openproblems/m3v4g11.py)):
 
 > The script openproblems/m3v4g11.py generates a CNF formula with 1831 variables and 642938 clauses. Most probably, it is unsatisfiable. But if it is satisfiable, then C(MOD_3) <= 2.75n+O(1).
 
